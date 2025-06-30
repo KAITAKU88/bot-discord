@@ -41,13 +41,15 @@ client.on('guildMemberAdd', (member) => {
   }
 });
 
+const http = require('http');
+const PORT = process.env.PORT || 3000;
 
-
-
-
-
-
-
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Bot is alive!');
+}).listen(PORT, () => {
+  console.log(`🌐 Web server running on port ${PORT}`);
+});
 
 
 client.login(process.env.DISCORD_TOKEN);
